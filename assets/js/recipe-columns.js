@@ -22,8 +22,13 @@
   const navigation = document.createElement("nav");
   navigation.className = "recipe-workspace-nav";
   navigation.setAttribute("aria-label", "Recipe navigation");
-  navigation.innerHTML =
-    '<a href="/">← All Recipes</a><a href="#recipe-overview">↑ Recipe Overview</a>';
+  const allRecipesLink = document.createElement("a");
+  allRecipesLink.href = `${document.body.dataset.baseurl || ""}/`;
+  allRecipesLink.textContent = "← All Recipes";
+  const overviewLink = document.createElement("a");
+  overviewLink.href = "#recipe-overview";
+  overviewLink.textContent = "↑ Recipe Overview";
+  navigation.append(allRecipesLink, overviewLink);
   const recipeTitle = document.createElement("span");
   recipeTitle.className = "recipe-workspace-title";
   recipeTitle.textContent = recipe.querySelector("h1")?.textContent.trim() || "";
