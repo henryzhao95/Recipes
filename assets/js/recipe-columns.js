@@ -101,4 +101,64 @@
   window.addEventListener("scroll", scheduleWorkspaceTitleUpdate, { passive: true });
   window.addEventListener("resize", scheduleWorkspaceTitleUpdate);
   updateWorkspaceTitle();
+
+  if (window.matchMedia("(min-width: 700px) and (pointer: coarse)").matches) {
+    let touchStart;
+
+    document.addEventListener(
+      "touchstart",
+      (event) => {
+        const target = event.target;
+        if (
+          event.touches.length !== 1 ||
+          !(target instanceof Element) ||
+          target.closest(".recipe-column, a, button, input")
+        ) {
+          touchStart = undefined;
+          return;
+        }
+
+        touchStart = {
+          x: event.touches[0].clientX,
+          y: event.touches[0].clientY,
+          stage: target.closest(".recipe-intro-stage, .recipe-workspace"),
+        };
+      },
+      { passive: true }
+    );
+
+    document.addEventListener(
+      "touchend",
+      (event) => {
+        if (!touchStart || !touchStart.stage || event.changedTouches.length !== 1) return;
+
+        const deltaX = event.changedTouches[0].clientX - touchStart.x;
+        const deltaY = event.changedTouches[0].clientY - touchStart.y;
+        const stage = touchStart.stage;
+        touchStart = undefined;
+
+        if (Math.abs(deltaY) < 40 || Math.abs(deltaY) <= Math.abs(deltaX) * 1.2) return;
+
+        let nextStage;
+        if (stage.matches(".recipe-intro-stage") && deltaY < 0) {
+          if (stage.getBoundingClientRect().bottom <= window.innerHeight + 40) {
+            nextStage = workspace;
+          }
+        } else if (stage.matches(".recipe-workspace") && deltaY > 0) {
+          nextStage = document.querySelector(".recipe-intro-stage");
+        }
+
+        nextStage?.scrollIntoView({ behavior: "smooth", block: "start" });
+      },
+      { passive: true }
+    );
+
+    document.addEventListener(
+      "touchcancel",
+      () => {
+        touchStart = undefined;
+      },
+      { passive: true }
+    );
+  }
 })();
