@@ -6,19 +6,30 @@
 
   const input = control.querySelector("[data-serving-input]");
   const baseServings = Number(control.dataset.baseServings);
+  const tableIngredients = recipe.querySelectorAll("[data-recipe-ingredient]");
   const ingredientHeading = Array.from(recipe.querySelectorAll("h2")).find(
     (heading) => heading.textContent.trim().toLowerCase() === "ingredients"
   );
-  if (!input || !Number.isFinite(baseServings) || baseServings < 1 || !ingredientHeading) return;
+  if (
+    !input ||
+    !Number.isFinite(baseServings) ||
+    baseServings < 1 ||
+    (!ingredientHeading && tableIngredients.length === 0)
+  ) {
+    return;
+  }
 
   const ingredientItems = [];
-  let node = ingredientHeading.nextElementSibling;
-  while (node && node.tagName !== "H2") {
-    if (node.matches("ul, ol")) {
-      ingredientItems.push(...node.querySelectorAll(":scope > li"));
+  if (ingredientHeading) {
+    let node = ingredientHeading.nextElementSibling;
+    while (node && node.tagName !== "H2") {
+      if (node.matches("ul, ol")) {
+        ingredientItems.push(...node.querySelectorAll(":scope > li"));
+      }
+      node = node.nextElementSibling;
     }
-    node = node.nextElementSibling;
   }
+  ingredientItems.push(...tableIngredients);
 
   const fractions = {
     "¼": 0.25,

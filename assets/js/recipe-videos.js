@@ -85,6 +85,7 @@
 
   frames.forEach((frame) => {
     const container = frame.closest(".recipe-video-frame");
+    frame.addEventListener("recipe-video-pause", () => pause(frame));
     const placeholder = document.createElement("button");
     const playIcon = document.createElement("span");
     const prompt = document.createElement("span");

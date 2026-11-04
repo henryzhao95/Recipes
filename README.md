@@ -32,6 +32,10 @@ The front matter fields other than `title` are optional. Recipes appear on the h
 
 The servings control remembers your last selection in this browser and applies it to other recipes.
 
+## Experimental table view
+
+Use the **Standard / Table** view toggle on the home page or a recipe page to choose a recipe layout for the current browser tab. Table is the default, and your choice is saved for the tab's session and carries across recipes. Home-page filters are also restored while you navigate in that tab. The table places ingredients in rows and cooking steps in columns, merging cells for ingredients handled together. Cells for steps with video clips include a button to open them in a dialog. Scroll horizontally to move through later steps.
+
 ## Add a recipe with AI
 
 Ask Copilot to add a recipe from its source URL. The workspace [`recipe-ingestion` skill](.github/skills/recipe-ingestion/SKILL.md) guides AI through full step extraction, metric quantities, concise titles, linked images and step videos, and a site build check. Recipe Markdown files live in `_recipes/`.
@@ -42,7 +46,7 @@ Install Ruby and Bundler, then run:
 
 ```sh
 bundle install
-bundle exec jekyll serve
+bundle exec jekyll serve --baseurl ""
 ```
 
 Open the local address printed by Jekyll (usually `http://127.0.0.1:4000`).

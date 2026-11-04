@@ -5,6 +5,7 @@ title: Home
 {% assign recipes = site.recipes | sort: "title" %}
 {% if recipes.size > 0 %}
   {% assign method_tags = recipes | map: "tags" | join: "," | split: "," | uniq | sort %}
+  {% include recipe-view-toggle.html %}
   <section class="recipe-filters" aria-label="Filter recipes">
     <fieldset class="filter-group filter-group--category">
       <legend>Category</legend>

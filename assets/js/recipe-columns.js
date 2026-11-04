@@ -2,7 +2,8 @@
   const recipe = document.querySelector(".recipe");
   if (!recipe) return;
 
-  const children = Array.from(recipe.children);
+  const recipeContent = recipe.querySelector(".recipe-standard-view") || recipe;
+  const children = Array.from(recipeContent.children);
   const ingredientsIndex = children.findIndex(
     (element) =>
       element.tagName === "H2" && element.textContent.trim().toLowerCase() === "ingredients"
@@ -19,21 +20,6 @@
   workspace.className = "recipe-workspace";
   workspace.id = "recipe-workspace";
   workspace.setAttribute("aria-label", "Ingredients and method");
-  const navigation = document.createElement("nav");
-  navigation.className = "recipe-workspace-nav";
-  navigation.setAttribute("aria-label", "Recipe navigation");
-  const allRecipesLink = document.createElement("a");
-  allRecipesLink.href = `${document.body.dataset.baseurl || ""}/`;
-  allRecipesLink.textContent = "← All Recipes";
-  const overviewLink = document.createElement("a");
-  overviewLink.href = "#recipe-overview";
-  overviewLink.textContent = "↑ Recipe Overview";
-  navigation.append(allRecipesLink, overviewLink);
-  const recipeTitle = document.createElement("span");
-  recipeTitle.className = "recipe-workspace-title";
-  recipeTitle.textContent = recipe.querySelector("h1")?.textContent.trim() || "";
-  recipeTitle.setAttribute("aria-hidden", "true");
-  navigation.insertBefore(recipeTitle, navigation.lastElementChild);
   const ingredients = document.createElement("section");
   ingredients.className = "recipe-column recipe-column--ingredients";
   ingredients.setAttribute("aria-label", "Ingredients");
@@ -52,8 +38,8 @@
   progressThumb.className = "recipe-method-progress-thumb";
   progress.append(progressThumb);
 
-  recipe.insertBefore(workspace, children[ingredientsIndex]);
-  workspace.append(navigation, ingredients, methodPanel);
+  recipeContent.insertBefore(workspace, children[ingredientsIndex]);
+  workspace.append(ingredients, methodPanel);
   methodPanel.append(method, progress);
   children.slice(ingredientsIndex, methodIndex).forEach((element) => {
     ingredients.append(element);
@@ -81,26 +67,6 @@
     new ResizeObserver(updateProgress).observe(method);
   }
   updateProgress();
-
-  const updateWorkspaceTitle = () => {
-    const workspaceTop = workspace.getBoundingClientRect().top;
-    const isWorkspaceActive = workspaceTop >= -1 && workspaceTop <= 1;
-    recipeTitle.setAttribute("aria-hidden", String(!isWorkspaceActive));
-    workspace.classList.toggle("is-active", isWorkspaceActive);
-  };
-  let titleUpdateScheduled = false;
-  const scheduleWorkspaceTitleUpdate = () => {
-    if (titleUpdateScheduled) return;
-    titleUpdateScheduled = true;
-    window.requestAnimationFrame(() => {
-      updateWorkspaceTitle();
-      titleUpdateScheduled = false;
-    });
-  };
-
-  window.addEventListener("scroll", scheduleWorkspaceTitleUpdate, { passive: true });
-  window.addEventListener("resize", scheduleWorkspaceTitleUpdate);
-  updateWorkspaceTitle();
 
   if (window.matchMedia("(min-width: 700px) and (pointer: coarse)").matches) {
     let touchStart;

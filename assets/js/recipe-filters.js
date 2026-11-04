@@ -2,7 +2,34 @@
   const cards = Array.from(document.querySelectorAll(".recipe-card[data-total-time-minutes]"));
   const buttons = Array.from(document.querySelectorAll("[data-filter-group][data-filter-value]"));
   const status = document.querySelector("[data-filter-status]");
+  const storageKey = "my-recipes-filters";
   const selected = { category: "all", method: "all", time: "all" };
+  const validFilters = {
+    category: new Set(
+      buttons
+        .filter((button) => button.dataset.filterGroup === "category")
+        .map((button) => button.dataset.filterValue)
+    ),
+    method: new Set(
+      buttons
+        .filter((button) => button.dataset.filterGroup === "method")
+        .map((button) => button.dataset.filterValue)
+    ),
+    time: new Set(
+      buttons
+        .filter((button) => button.dataset.filterGroup === "time")
+        .map((button) => button.dataset.filterValue)
+    )
+  };
+
+  try {
+    const saved = JSON.parse(window.sessionStorage.getItem(storageKey) || "{}");
+    Object.keys(selected).forEach((group) => {
+      if (validFilters[group].has(saved[group])) selected[group] = saved[group];
+    });
+  } catch (error) {
+    console.warn("Could not read the recipe filters in this browser session.", error);
+  }
 
   const matchesTime = (minutes, range) => {
     if (range === "quick") return minutes > 0 && minutes <= 15;
@@ -12,6 +39,12 @@
   };
 
   const update = () => {
+    buttons.forEach((button) => {
+      button.setAttribute(
+        "aria-pressed",
+        String(button.dataset.filterValue === selected[button.dataset.filterGroup])
+      );
+    });
     let visible = 0;
     cards.forEach((card) => {
       const minutes = Number(card.dataset.totalTimeMinutes);
@@ -32,15 +65,17 @@
     }
   };
 
+  update();
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
       const { filterGroup, filterValue } = button.dataset;
+      if (!validFilters[filterGroup]?.has(filterValue)) return;
       selected[filterGroup] = filterValue;
-      buttons
-        .filter((candidate) => candidate.dataset.filterGroup === filterGroup)
-        .forEach((candidate) => {
-          candidate.setAttribute("aria-pressed", String(candidate === button));
-        });
+      try {
+        window.sessionStorage.setItem(storageKey, JSON.stringify(selected));
+      } catch (error) {
+        console.warn("Could not save the recipe filters in this browser session.", error);
+      }
       update();
     });
   });

@@ -2,6 +2,7 @@
 layout: default
 ---
 <article class="recipe">
+  {% include recipe-view-toggle.html %}
   <section class="recipe-intro-stage" id="recipe-overview" aria-label="Recipe overview">
     <div class="recipe-overview">
       <header class="recipe-header">
@@ -52,3 +53,6 @@ layout: default
   </section>
   {{ content }}
 </article>
+{% if page.table_grid %}
+  <script type="application/json" id="recipe-table-grid">{{ page.table_grid | jsonify }}</script>
+{% endif %}

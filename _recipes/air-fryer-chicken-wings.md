@@ -11,6 +11,11 @@ prep_time: "10 minutes"
 cook_time: "20 minutes"
 total_time: "30 minutes"
 servings: "4 servings"
+table_grid:
+  - ingredients: [0]
+  - ingredients: [1, 2, 3, 4, 5, 6, 7]
+  - ingredients: [1, 2, 3, 4, 5, 6, 7]
+  - ingredients: [0, 1, 2, 3, 4, 5, 6, 7]
 ---
 
 ## Ingredients
