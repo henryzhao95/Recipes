@@ -1,0 +1,19 @@
+title: My Recipes
+description: A collection of recipes
+url: ""
+baseurl: ""
+
+markdown: kramdown
+permalink: pretty
+
+collections:
+  recipes:
+    output: true
+    permalink: /recipes/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: recipes
+    values:
+      layout: recipe

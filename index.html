@@ -1,0 +1,98 @@
+---
+layout: default
+title: Home
+---
+{% assign recipes = site.recipes | sort: "title" %}
+{% if recipes.size > 0 %}
+  {% assign method_tags = recipes | map: "tags" | join: "," | split: "," | uniq | sort %}
+  <section class="recipe-filters" aria-label="Filter recipes">
+    <fieldset class="filter-group filter-group--category">
+      <legend>Category</legend>
+      <div class="filter-options">
+        <button type="button" class="filter-button" data-filter-group="category" data-filter-value="all" aria-pressed="true">All</button>
+        <button type="button" class="filter-button" data-filter-group="category" data-filter-value="protein" aria-pressed="false">Protein</button>
+        <button type="button" class="filter-button" data-filter-group="category" data-filter-value="vegetables" aria-pressed="false">Vegetables</button>
+      </div>
+    </fieldset>
+    <fieldset class="filter-group filter-group--method">
+      <legend>Method</legend>
+      <div class="filter-options">
+        <button type="button" class="filter-button" data-filter-group="method" data-filter-value="all" aria-pressed="true">Any method</button>
+        {% for tag in method_tags %}
+          {% assign method = tag | strip %}
+          {% if method != "" %}
+            <button type="button" class="filter-button" data-filter-group="method" data-filter-value="{{ method | downcase | escape }}" aria-pressed="false">{{ method }}</button>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </fieldset>
+    <fieldset class="filter-group filter-group--time">
+      <legend>Total time</legend>
+      <div class="filter-options">
+        <button type="button" class="filter-button" data-filter-group="time" data-filter-value="all" aria-pressed="true">Any time</button>
+        <button type="button" class="filter-button" data-filter-group="time" data-filter-value="quick" aria-pressed="false">15 min or less</button>
+        <button type="button" class="filter-button" data-filter-group="time" data-filter-value="medium" aria-pressed="false">16–30 min</button>
+        <button type="button" class="filter-button" data-filter-group="time" data-filter-value="long" aria-pressed="false">31+ min</button>
+      </div>
+    </fieldset>
+  </section>
+  {% assign recipe_count = recipes | size %}
+  <p class="filter-status" data-filter-status aria-live="polite">{{ recipe_count }} recipes</p>
+  <section class="recipe-grid" aria-label="Recipes">
+    {% for recipe in recipes %}
+      {% assign prep_time_minutes = recipe.prep_time | split: " " | first | plus: 0 %}
+      {% assign cook_time_minutes = recipe.cook_time | split: " " | first | plus: 0 %}
+      {% assign total_time_minutes = prep_time_minutes | plus: cook_time_minutes %}
+      <a
+        class="recipe-card"
+        href="{{ recipe.url | relative_url }}"
+        data-recipe-categories="{{ recipe.categories | join: '|' | downcase | escape }}"
+        data-recipe-methods="{{ recipe.tags | join: '|' | downcase | escape }}"
+        data-total-time-minutes="{{ total_time_minutes }}">
+        <div class="recipe-card-image-wrap">
+          {% if recipe.hero_image %}
+            <img
+              class="recipe-card-image"
+              src="{{ recipe.hero_image | escape }}"
+              alt="{{ recipe.hero_image_alt | default: recipe.title | escape }}"
+              loading="lazy"
+              decoding="async">
+          {% else %}
+            <img
+              class="recipe-card-image recipe-card-placeholder"
+              src="{{ '/assets/images/recipe-placeholder.svg' | relative_url }}"
+              alt=""
+              loading="lazy"
+              decoding="async">
+          {% endif %}
+          {% if total_time_minutes > 0 %}
+            <span class="recipe-card-time recipe-tag-time" aria-label="Total time: {{ total_time_minutes }} minutes">{{ total_time_minutes }} min</span>
+          {% endif %}
+          {% if recipe.categories.size > 0 %}
+            <ul class="recipe-card-tags recipe-card-categories" aria-label="Categories">
+              {% for category in recipe.categories %}
+                <li class="recipe-tag-category">{{ category | strip }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+          {% if recipe.tags.size > 0 %}
+            <ul class="recipe-card-tags recipe-card-methods" aria-label="Cooking methods">
+              {% for method in recipe.tags %}
+                <li class="recipe-tag-method">{{ method | strip }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </div>
+        <div class="recipe-card-content">
+          <h2>{{ recipe.title }}</h2>
+          {% if recipe.description %}<p>{{ recipe.description }}</p>{% endif %}
+        </div>
+      </a>
+    {% endfor %}
+  </section>
+{% else %}
+  <section class="empty-state">
+    <h2>Your recipe collection starts here</h2>
+    <p>Add a Markdown file to <code>_recipes/</code> to see your first recipe.</p>
+  </section>
+{% endif %}

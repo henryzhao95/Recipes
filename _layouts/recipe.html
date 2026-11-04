@@ -1,0 +1,54 @@
+---
+layout: default
+---
+<article class="recipe">
+  <section class="recipe-intro-stage" id="recipe-overview" aria-label="Recipe overview">
+    <div class="recipe-overview">
+      <header class="recipe-header">
+        <h1>{{ page.title }}</h1>
+        {% if page.description %}<p class="recipe-description">{{ page.description }}</p>{% endif %}
+        {% assign recipe_metadata_tags = page.categories | concat: page.tags %}
+        {% if recipe_metadata_tags.size > 0 %}
+          <ul class="recipe-metadata-tags" aria-label="Recipe tags">
+            {% for tag in page.categories %}
+              <li class="recipe-tag-category">{{ tag }}</li>
+            {% endfor %}
+            {% for tag in page.tags %}
+              <li class="recipe-tag-method">{{ tag }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+        {% if page.prep_time or page.cook_time %}
+          <dl class="recipe-times">
+            {% if page.prep_time %}<div class="recipe-time"><dt>Prep</dt><dd>{{ page.prep_time }}</dd></div>{% endif %}
+            {% if page.cook_time %}<div class="recipe-time"><dt>Cook</dt><dd>{{ page.cook_time }}</dd></div>{% endif %}
+          </dl>
+        {% endif %}
+        {% if page.servings %}
+          {% assign serving_count = page.servings | split: " " | first | plus: 0 %}
+          {% if serving_count > 0 %}
+            <div class="serving-control" data-serving-control data-base-servings="{{ serving_count }}">
+              <label for="serving-count">Servings</label>
+              <button type="button" data-serving-adjust="-1" aria-label="Decrease servings">−</button>
+              <input id="serving-count" type="number" min="1" max="100" step="1" value="{{ serving_count }}" data-serving-input inputmode="numeric">
+              <button type="button" data-serving-adjust="1" aria-label="Increase servings">+</button>
+            </div>
+          {% else %}
+            <p class="servings">Makes {{ page.servings }}</p>
+          {% endif %}
+        {% endif %}
+        {% if page.source_url %}
+          <a class="recipe-source-link" href="{{ page.source_url | escape }}" target="_blank" rel="noopener noreferrer">Original recipe ↗</a>
+        {% endif %}
+      </header>
+      {% if page.hero_image %}
+        <figure class="recipe-hero">
+          <a href="{{ page.hero_image | escape }}" target="_blank" rel="noopener">
+            <img src="{{ page.hero_image | escape }}" alt="{{ page.hero_image_alt | default: page.title | escape }}" loading="eager" decoding="async">
+          </a>
+        </figure>
+      {% endif %}
+    </div>
+  </section>
+  {{ content }}
+</article>
