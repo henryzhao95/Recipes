@@ -1,8 +1,8 @@
 ---
-title: "Super Easy Cabbage Stir-Fry"
+title: "Cabbage Stir-Fry"
 source_url: "https://www.allrecipes.com/recipe/174210/super-easy-stir-fried-cabbage/"
-hero_image: "https://assets-jpcust.jwpsrv.com/thumbnails/xxs7p0hb-720.jpg"
-hero_image_alt: "Super Easy Cabbage Stir-Fry"
+hero_image: "https://cdn.jwplayer.com/v2/media/e2LbISQr/poster.jpg?width=720"
+hero_image_alt: "Cabbage Stir-Fry"
 categories:
   - Vegetables
 tags:

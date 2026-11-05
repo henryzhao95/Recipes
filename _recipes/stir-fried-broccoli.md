@@ -1,8 +1,8 @@
 ---
-title: "Homestyle Stir-Fried Broccoli"
+title: "Stir-Fried Broccoli"
 source_url: "https://www.madewithlau.com/recipes/easy-stir-fry-broccoli"
 hero_image: "https://cdn.sanity.io/images/2r0kdewr/production/2ce716fc7ed10491dce9dbb1b94f2bb466ea7d1e-1000x668.jpg"
-hero_image_alt: "Homestyle stir-fried broccoli"
+hero_image_alt: "Stir-fried broccoli"
 categories:
   - Vegetables
 tags:
