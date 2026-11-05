@@ -44,6 +44,9 @@ title: Home
       {% assign prep_time_minutes = recipe.prep_time | split: " " | first | plus: 0 %}
       {% assign cook_time_minutes = recipe.cook_time | split: " " | first | plus: 0 %}
       {% assign total_time_minutes = prep_time_minutes | plus: cook_time_minutes %}
+      {% if total_time_minutes == 0 and recipe.total_time %}
+        {% assign total_time_minutes = recipe.total_time | split: " " | first | plus: 0 %}
+      {% endif %}
       <a
         class="recipe-card"
         href="{{ recipe.url | relative_url }}"

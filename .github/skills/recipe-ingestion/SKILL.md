@@ -19,12 +19,12 @@ Add recipes by researching the source page and writing a reviewed Markdown file 
    - `categories`, using `Protein` and/or `Vegetables` where applicable
    - `tags` for useful cooking methods written as readable labels, such as `Stir Fry`, `Air Fry`, or `Boil`
    - `prep_time`, `cook_time`, `total_time`, and `servings` when available
-5. Keep `prep_time` and `cook_time` as simple numbers followed by `minute` or `minutes` (for example, `"7 minutes"`). The home page adds them together for the total-time tag and filters.
+5. Keep `prep_time` and `cook_time` as simple numbers followed by `minute` or `minutes` (for example, `"7 minutes"`). The home page adds them together for the total-time tag and filters; if the source provides only an overall duration, set `total_time` and the home page uses it as a fallback.
 6. Store `servings` as a numeric count (or a count followed by a label, such as `"4 servings"`). The recipe page uses it as the baseline for the servings scaler.
 7. When adding a recipe with an experimental table view, add a `table_grid` front-matter list with one entry per rendered method step, in order. Each entry's `ingredients` array contains zero-based indexes into the direct ingredient list items under `## Ingredients` (section headings do not count). Map every ingredient involved in that step; adjacent ingredient rows are merged in the table. The number of entries must match the method steps.
 8. Write a clear ingredient list with a leading numeric quantity when one applies, followed by metric units (g, kg, ml, L) or a count unit. The servings scaler multiplies leading numbers and ranges; qualitative amounts such as "salt to taste" stay unchanged. Convert source amounts carefully, round practical quantities, retain counts where appropriate, and convert oven temperatures to Celsius. Do not silently guess when a conversion is ambiguous.
 9. Write a complete, concise method in your own words. Preserve the source's sequence, meaningful times and temperatures, and actionable details. Remove narrative, promotional commentary, personal anecdotes, and unrelated tips. Do not reduce a detailed steps section to a few generic steps.
-10. Hotlink the original hero image; never download or add source media files to the project. Set `source_url` for attribution; the recipe layout displays the original-recipe link and links the image to its source, opening both in a new tab. Do not add a duplicate source paragraph to the recipe body.
+10. Hotlink the original hero image and any available step-specific source photos; never download or add source media files to the project. Link each step photo to its original image URL and place it with the matching method step. Set `source_url` for attribution; the recipe layout displays the original-recipe link and links the hero image to its source, opening both in a new tab. Do not add a duplicate source paragraph to the recipe body.
 11. When a step has a source video, place that step's video directly below its instructions. Reuse the original hosted video and its precise step segment; do not copy video files. YouTube step embeds must be lazy-loaded by the site's video player using `data-video-src`, not an eager `src`:
 
    ```html
@@ -39,5 +39,6 @@ Add recipes by researching the source page and writing a reviewed Markdown file 
 - Recipe files are Markdown in `_recipes/` and use the `recipe` layout by default.
 - Home-page category filters use the `categories` list; method filters use `tags`; time filters use the sum of `prep_time` and `cook_time`.
 - The servings control remembers the selected count in browser storage and applies it across recipe pages.
+- Linked step photos appear in both Standard and Table recipe views.
 - Video players show a preview, load YouTube only when activated by scrolling or a manual click, and pause the previously active video.
 - Keep media externally hosted and retain clear attribution to the original recipe.

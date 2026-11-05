@@ -120,25 +120,44 @@
 
   const steps = [];
   const unassignedVideos = [];
+  const getLinkedImages = (element) =>
+    Array.from(element.querySelectorAll("a")).flatMap((anchor) =>
+      Array.from(anchor.querySelectorAll("img"), (image) => ({
+        href: anchor.href,
+        src: image.src,
+        alt: image.alt
+      }))
+    );
+  const textWithoutLinkedImages = (element) => {
+    const clone = element.cloneNode(true);
+    clone.querySelectorAll("a").forEach((anchor) => {
+      if (anchor.querySelector("img")) anchor.remove();
+    });
+    return clone.textContent.trim();
+  };
   let currentStep;
   node = methodHeading.nextElementSibling;
   while (node && node.tagName !== "H2") {
     if (node.tagName === "H3") {
-      currentStep = { title: node.textContent.trim(), paragraphs: [], videos: [] };
+      currentStep = { title: node.textContent.trim(), paragraphs: [], videos: [], images: [] };
       steps.push(currentStep);
     } else if (node.tagName === "OL") {
       Array.from(node.children)
         .filter((child) => child.tagName === "LI")
         .forEach((item) => {
+          const instruction = textWithoutLinkedImages(item);
           steps.push({
             title: `Step ${steps.length + 1}`,
-            paragraphs: [item.textContent.trim()],
-            videos: []
+            paragraphs: instruction ? [instruction] : [],
+            videos: [],
+            images: getLinkedImages(item)
           });
         });
       currentStep = steps[steps.length - 1];
     } else if (node.tagName === "P" && currentStep) {
-      currentStep.paragraphs.push(node.textContent.trim());
+      const instruction = textWithoutLinkedImages(node);
+      if (instruction) currentStep.paragraphs.push(instruction);
+      currentStep.images.push(...getLinkedImages(node));
     } else if (node.matches(".recipe-video-frame")) {
       if (currentStep) currentStep.videos.push(node);
       else unassignedVideos.push(node);
@@ -307,6 +326,19 @@
           const text = document.createElement("p");
           text.textContent = paragraph;
           cell.append(text);
+        });
+        step.images.forEach(({ href, src, alt }) => {
+          const link = document.createElement("a");
+          link.className = "recipe-grid-step-image";
+          link.href = href;
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+          const image = document.createElement("img");
+          image.src = src;
+          image.alt = alt;
+          image.loading = "lazy";
+          link.append(image);
+          cell.append(link);
         });
         if (step.videoItems.length > 0) {
           const videoButton = document.createElement("button");
