@@ -2,6 +2,7 @@
   const cards = Array.from(document.querySelectorAll(".recipe-card[data-total-time-minutes]"));
   const buttons = Array.from(document.querySelectorAll("[data-filter-group][data-filter-value]"));
   const status = document.querySelector("[data-filter-status]");
+  const searchInput = document.querySelector("[data-recipe-search]");
   const storageKey = "my-recipes-filters";
   const selected = { category: "all", method: "all", time: "all" };
   const validFilters = {
@@ -27,9 +28,21 @@
     Object.keys(selected).forEach((group) => {
       if (validFilters[group].has(saved[group])) selected[group] = saved[group];
     });
+    if (searchInput && typeof saved.search === "string") searchInput.value = saved.search;
   } catch (error) {
     console.warn("Could not read the recipe filters in this browser session.", error);
   }
+
+  const savePreferences = () => {
+    try {
+      window.sessionStorage.setItem(
+        storageKey,
+        JSON.stringify({ ...selected, search: searchInput?.value || "" })
+      );
+    } catch (error) {
+      console.warn("Could not save the recipe filters in this browser session.", error);
+    }
+  };
 
   const matchesTime = (minutes, range) => {
     if (range === "quick") return minutes > 0 && minutes <= 15;
@@ -39,6 +52,7 @@
   };
 
   const update = () => {
+    const searchTerm = searchInput?.value.trim().toLocaleLowerCase() || "";
     buttons.forEach((button) => {
       button.setAttribute(
         "aria-pressed",
@@ -53,7 +67,13 @@
         selected.category === "all" || categories.includes(selected.category);
       const methods = (card.dataset.recipeMethods || "").split("|");
       const matchesMethod = selected.method === "all" || methods.includes(selected.method);
-      const matches = matchesCategory && matchesMethod && matchesTime(minutes, selected.time);
+      const searchableText = card.dataset.recipeSearchText || "";
+      const matchesSearch = !searchTerm || searchableText.includes(searchTerm);
+      const matches =
+        matchesSearch &&
+        matchesCategory &&
+        matchesMethod &&
+        matchesTime(minutes, selected.time);
       card.hidden = !matches;
       if (matches) visible += 1;
     });
@@ -61,7 +81,7 @@
     if (status) {
       status.textContent = visible
         ? `${visible} ${visible === 1 ? "recipe" : "recipes"}`
-        : "No recipes match these filters.";
+        : "No recipes match your search and filters.";
     }
   };
 
@@ -71,12 +91,13 @@
       const { filterGroup, filterValue } = button.dataset;
       if (!validFilters[filterGroup]?.has(filterValue)) return;
       selected[filterGroup] = filterValue;
-      try {
-        window.sessionStorage.setItem(storageKey, JSON.stringify(selected));
-      } catch (error) {
-        console.warn("Could not save the recipe filters in this browser session.", error);
-      }
+      savePreferences();
       update();
     });
+  });
+
+  searchInput?.addEventListener("input", () => {
+    savePreferences();
+    update();
   });
 })();

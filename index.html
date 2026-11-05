@@ -5,8 +5,11 @@ title: Home
 {% assign recipes = site.recipes | sort: "title" %}
 {% if recipes.size > 0 %}
   {% assign method_tags = recipes | map: "tags" | join: "," | split: "," | uniq | sort %}
-  {% include recipe-view-toggle.html %}
   <section class="recipe-filters" aria-label="Filter recipes">
+    <div class="recipe-search">
+      <label for="recipe-search">Search recipes</label>
+      <input id="recipe-search" type="search" data-recipe-search placeholder="Search by recipe name">
+    </div>
     <fieldset class="filter-group filter-group--category">
       <legend>Category</legend>
       <div class="filter-options">
@@ -52,6 +55,7 @@ title: Home
         href="{{ recipe.url | relative_url }}"
         data-recipe-categories="{{ recipe.categories | join: '|' | downcase | escape }}"
         data-recipe-methods="{{ recipe.tags | join: '|' | downcase | escape }}"
+        data-recipe-search-text="{{ recipe.title | downcase | escape }}"
         data-total-time-minutes="{{ total_time_minutes }}">
         <div class="recipe-card-image-wrap">
           {% if recipe.hero_image %}

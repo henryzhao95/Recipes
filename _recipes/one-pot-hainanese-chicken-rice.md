@@ -1,6 +1,8 @@
 ---
 title: "One-Pot Hainanese Chicken Rice"
 source_url: "https://www.marionskitchen.com/easy-one-pot-hainanese-chicken-rice/"
+hero_image: "https://www.marionskitchen.com/wp-content/uploads/2022/08/Easy-One-Pot-Hainanese-Chicken-Rice-01.jpg"
+hero_image_alt: "Easy One-Pot Hainanese Chicken Rice"
 categories:
   - Protein
 tags:
@@ -52,3 +54,12 @@ Pound the sliced spring onions with the salt until coarsely crushed. Heat the ve
 ### 3. Serve
 
 Slice the thigh fillets and serve the chicken with the rice, spring onion sauce, sambal oelek, and cucumber.
+
+## More recipe photos
+
+<div class="recipe-source-gallery" aria-label="More Hainanese chicken rice photos">
+  <a href="https://www.marionskitchen.com/wp-content/uploads/2022/08/Easy-One-Pot-Hainanese-Chicken-Rice-02.jpg" target="_blank" rel="noopener noreferrer"><img src="https://www.marionskitchen.com/wp-content/uploads/2022/08/Easy-One-Pot-Hainanese-Chicken-Rice-02.jpg" alt="Hainanese chicken rice photo 2" loading="lazy" decoding="async"></a>
+  <a href="https://www.marionskitchen.com/wp-content/uploads/2022/08/Easy-One-Pot-Hainanese-Chicken-Rice-03.jpg" target="_blank" rel="noopener noreferrer"><img src="https://www.marionskitchen.com/wp-content/uploads/2022/08/Easy-One-Pot-Hainanese-Chicken-Rice-03.jpg" alt="Hainanese chicken rice photo 3" loading="lazy" decoding="async"></a>
+  <a href="https://www.marionskitchen.com/wp-content/uploads/2022/08/Easy-One-Pot-Hainanese-Chicken-Rice-04.jpg" target="_blank" rel="noopener noreferrer"><img src="https://www.marionskitchen.com/wp-content/uploads/2022/08/Easy-One-Pot-Hainanese-Chicken-Rice-04.jpg" alt="Hainanese chicken rice photo 4" loading="lazy" decoding="async"></a>
+  <a href="https://www.marionskitchen.com/wp-content/uploads/2022/08/Easy-One-Pot-Hainanese-Chicken-Rice-05.jpg" target="_blank" rel="noopener noreferrer"><img src="https://www.marionskitchen.com/wp-content/uploads/2022/08/Easy-One-Pot-Hainanese-Chicken-Rice-05.jpg" alt="Hainanese chicken rice photo 5" loading="lazy" decoding="async"></a>
+</div>

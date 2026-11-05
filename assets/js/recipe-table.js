@@ -365,7 +365,10 @@
   const tableView = document.createElement("section");
   tableView.className = "recipe-table-view";
   tableView.setAttribute("aria-label", "Experimental tabular recipe");
-  tableView.append(intro, note, scrollRegion, videoDialog);
+  tableView.append(intro, note, scrollRegion);
+  const sourceGallery = standardView.querySelector(".recipe-source-gallery");
+  if (sourceGallery) tableView.append(sourceGallery.cloneNode(true));
+  tableView.append(videoDialog);
   recipe.append(tableView);
 
   const updateToolbar = () => {
