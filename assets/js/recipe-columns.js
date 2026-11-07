@@ -51,7 +51,9 @@
   const updateProgress = () => {
     const scrollableDistance = method.scrollHeight - method.clientHeight;
     const isScrollable = scrollableDistance > 0;
-    const hasOverflow = isScrollable || ingredients.scrollHeight > ingredients.clientHeight;
+    const hasOverflow =
+      method.scrollHeight > window.innerHeight ||
+      ingredients.scrollHeight > window.innerHeight;
     const visibleRatio = method.clientHeight / method.scrollHeight;
     const thumbSize = Math.max(8, visibleRatio * 100);
     const progressRatio = isScrollable ? method.scrollTop / scrollableDistance : 0;
