@@ -41,10 +41,10 @@ table_grid:
 - 10 ml light soy sauce
 - 15 ml rice wine
 - 30 ml water
-- 0.5 g white pepper
-- 4 g sugar
-- 5 g baking soda
-- 16 g cornstarch
+- 0.25 tsp white pepper
+- 1 tsp sugar
+- 1 tsp baking soda
+- 2 tbsp cornstarch
 
 ### Beef sauce
 
@@ -52,14 +52,14 @@ table_grid:
 - 10 ml light soy sauce
 - 2.5 ml dark soy sauce
 - 10 ml rice wine
-- 4 g sugar
+- 1 tsp sugar
 - White pepper, a pinch
-- 5 g chicken bouillon, optional
+- 1 tsp chicken bouillon, optional
 - 15 ml oil
 
 ### Slurry
 
-- 3 g cornstarch
+- 1 tsp cornstarch
 - 15 ml water
 
 ### Stir-fry
@@ -67,8 +67,8 @@ table_grid:
 - 30 ml oil, divided
 - 5 ml cooking wine
 - 30 ml water, plus 15 ml if needed
-- 2 g sugar
-- 2.5 g salt
+- 0.5 tsp sugar
+- 0.5 tsp salt
 - 5 ml sesame oil
 
 ## Method
@@ -99,11 +99,11 @@ Depending on size, halve or quarter the bok choy so the pieces cook evenly.
 
 ### 7. Mix the sauce and slurry
 
-Combine the oyster sauce, both soy sauces, rice wine, sugar, white pepper, and bouillon if using. In a separate bowl, mix the cornstarch and water for the slurry. Stir 15 ml of the stir-fry oil into the marinated beef.
+Combine the oyster sauce, both soy sauces, rice wine, sugar, white pepper, and bouillon if using. In a separate bowl, mix the cornstarch and water for the slurry. Stir half of the stir-fry oil into the marinated beef.
 
 ### 8. Stir-fry the bok choy
 
-Heat 15 ml oil in a wok over high heat. Add half the garlic and stir-fry for 30 seconds. Add the bok choy and toss for 1–2 minutes. Add the cooking wine, cook for 20 seconds, then add the water. Cover and steam on low for 40–50 seconds. Uncover, add the sugar and salt, toss, then transfer the bok choy to a plate and rinse the wok.
+Heat half of the oil in a wok over high heat. Add half the garlic and stir-fry for 30 seconds. Add the bok choy and toss for 1–2 minutes. Add the cooking wine, cook for 20 seconds, then add the water. Cover and steam on low for 40–50 seconds. Uncover, add the sugar and salt, toss, then transfer the bok choy to a plate and rinse the wok.
 
 ### 9. Stir-fry the beef
 

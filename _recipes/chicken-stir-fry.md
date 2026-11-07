@@ -34,33 +34,33 @@ table_grid:
 - 28 g green onion whites
 - 28 g carrot
 - 1.9 L blanching water
-- 5 g salt
+- 1 tsp salt
 - 10 ml oil, for blanching
 - 30 ml oil, for stir-frying
 - 5 ml cooking wine
-- 2 g sugar
+- 0.5 tsp sugar
 - 5 ml sesame oil
 
 ### Marinade
 
-- 8 g cornstarch
+- 1 tbsp cornstarch
 - 30 ml water
-- 2.5 g salt
+- 0.5 tsp salt
 - 15 ml oyster sauce
-- 0.5 g white pepper
+- 0.25 tsp white pepper
 
 ### Stir-fry sauce
 
 - 15 ml oyster sauce
 - 15 ml light soy sauce
-- 2.5 g salt
-- 6 g sugar
+- 0.5 tsp salt
+- 1.5 tsp sugar
 - 10 ml cooking wine
-- 0.7 g white pepper
+- 0.25 tsp white pepper
 
 ### Slurry
 
-- 8 g cornstarch
+- 1 tbsp cornstarch
 - 30 ml water
 
 ## Method

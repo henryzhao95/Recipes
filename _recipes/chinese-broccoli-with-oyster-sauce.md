@@ -26,7 +26,7 @@ table_grid:
 - 1.9 L boiling water
 - 15 ml oyster sauce
 - 15 ml olive oil
-- About 5 g salt
+- About 1 tsp salt
 
 ## Method
 

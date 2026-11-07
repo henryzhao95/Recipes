@@ -553,14 +553,33 @@ h1 {
 }
 
 .recipe-grid-step-image img,
-.recipe-column li img {
+.recipe-column p > a > img,
+.recipe-column li > a > img,
+.recipe-column li p > a > img,
+.recipe-column p > img,
+.recipe-column li > img,
+.recipe-column li p > img {
   display: block;
   width: 100%;
+  max-width: 100%;
   height: auto;
   border-radius: 6px;
 }
 
-.recipe-column li img {
+.recipe-column p > a,
+.recipe-column li > a,
+.recipe-column li p > a,
+.recipe-source-gallery a {
+  display: block;
+  max-width: 100%;
+}
+
+.recipe-column p > a > img,
+.recipe-column li > a > img,
+.recipe-column li p > a > img,
+.recipe-column p > img,
+.recipe-column li > img,
+.recipe-column li p > img {
   margin-block: 0.75rem;
 }
 
@@ -576,6 +595,14 @@ h1 {
   width: 100%;
   height: auto;
   border-radius: 8px;
+}
+
+.recipe-media-hidden .recipe-column--method p:has(> a > img),
+.recipe-media-hidden .recipe-column--method p:has(> img),
+.recipe-media-hidden .recipe-column--method .recipe-video-frame,
+.recipe-media-hidden .recipe-grid-step-image,
+.recipe-media-hidden .recipe-grid-video-button {
+  display: none;
 }
 
 .recipe-grid-table td.recipe-grid-empty {

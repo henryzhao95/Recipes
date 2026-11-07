@@ -28,7 +28,7 @@ table_grid:
 - ½ red onion
 - ½ white onion
 - 3 cloves garlic
-- 24 g cornstarch, for coating
+- 3 tbsp cornstarch, for coating
 - 30 ml cooking oil
 
 ### Marinade
@@ -36,16 +36,16 @@ table_grid:
 - 15 ml oyster sauce
 - 15 ml light soy sauce
 - 15 ml cooking wine
-- 5 g salt
-- 4 g sugar
-- 1 g white pepper
-- 16 g cornstarch
+- 1 tsp salt
+- 1 tsp sugar
+- 0.5 tsp white pepper
+- 2 tbsp cornstarch
 - 14 g fresh ginger
 
 ### To finish
 
 - 15 ml cooking wine
-- 2.5 g garlic salt
+- 0.5 tsp garlic salt
 
 ## Method
 

@@ -19,6 +19,22 @@
       console.warn("Could not save the recipe view preference in this browser.", error);
     }
   };
+  const mediaStorageKey = "my-recipes-method-media-hidden";
+  const readMediaHidden = () => {
+    try {
+      return window.sessionStorage.getItem(mediaStorageKey) === "true";
+    } catch (error) {
+      console.warn("Could not read the recipe media preference in this browser.", error);
+      return false;
+    }
+  };
+  const saveMediaHidden = (hidden) => {
+    try {
+      window.sessionStorage.setItem(mediaStorageKey, String(hidden));
+    } catch (error) {
+      console.warn("Could not save the recipe media preference in this browser.", error);
+    }
+  };
   const recipe = document.querySelector(".recipe");
   if (!recipe) {
     if (!toggle) return;
@@ -44,6 +60,29 @@
   recipe.append(standardView);
   const toolbar = document.createElement("div");
   toolbar.className = "recipe-view-toolbar";
+  let mediaHidden = readMediaHidden();
+  let mediaToggle;
+  const pauseVisibleMedia = () => {
+    recipe.querySelectorAll("video").forEach((video) => video.pause());
+    recipe.querySelectorAll("iframe[data-video-src]").forEach((frame) => {
+      frame.dispatchEvent(new Event("recipe-video-pause"));
+    });
+    recipe.querySelectorAll("dialog[open]").forEach((dialog) => {
+      if (typeof dialog.close === "function") dialog.close();
+    });
+  };
+  const updateMediaToggle = () => {
+    if (!mediaToggle) return;
+    mediaToggle.textContent = mediaHidden ? "Show Media" : "Hide Media";
+    mediaToggle.setAttribute("aria-pressed", String(mediaHidden));
+  };
+  const setMediaHidden = (hidden, persist = true) => {
+    mediaHidden = hidden;
+    recipe.classList.toggle("recipe-media-hidden", hidden);
+    if (hidden) pauseVisibleMedia();
+    updateMediaToggle();
+    if (persist) saveMediaHidden(hidden);
+  };
   if (toggle) {
     recipe.insertBefore(toolbar, standardView);
     const allRecipesLink = document.createElement("a");
@@ -59,11 +98,20 @@
     title.className = "recipe-toolbar-title";
     title.textContent = recipe.querySelector(".recipe-header h1")?.textContent.trim() || document.title;
     title.setAttribute("aria-hidden", "true");
+    mediaToggle = document.createElement("button");
+    mediaToggle.type = "button";
+    mediaToggle.dataset.recipeMediaToggle = "";
+    mediaToggle.addEventListener("click", () => {
+      setMediaHidden(!mediaHidden);
+    });
+    toggle.append(mediaToggle);
+    updateMediaToggle();
     toolbar.append(allRecipesLink);
     toolbar.append(toggle);
     toolbar.append(title);
     toolbar.append(overviewLink);
   }
+  setMediaHidden(mediaHidden, false);
 
   const gridData = document.querySelector("#recipe-table-grid");
   if (!gridData) {
@@ -176,7 +224,6 @@
       (step) =>
         !step ||
         !Array.isArray(step.ingredients) ||
-        step.ingredients.length === 0 ||
         new Set(step.ingredients).size !== step.ingredients.length ||
         step.ingredients.some(
           (index) => !Number.isInteger(index) || index < 0 || index >= ingredients.length

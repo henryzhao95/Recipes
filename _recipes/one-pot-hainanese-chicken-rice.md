@@ -32,7 +32,7 @@ table_grid:
 ### Spring onion sauce
 
 - 100 g spring onions, finely sliced
-- 5 g sea salt
+- 1 tsp sea salt
 - 60 ml vegetable oil
 - 10 ml sesame oil
 

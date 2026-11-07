@@ -54,7 +54,7 @@ Heat a little olive oil in a non-stick pan over medium-high heat. Cook the salmo
 
 ### 4. Glaze the salmon
 
-Pour the sauce into the pan and cook for about 1 minute, turning the salmon to coat it as the sauce thickens. If the sauce thickens before the fish is cooked to your liking, add water 15 ml at a time.
+Pour the sauce into the pan and cook for about 1 minute, turning the salmon to coat it as the sauce thickens. If the sauce thickens before the fish is cooked to your liking, add a small splash of water as needed.
 
 ### 5. Serve
 

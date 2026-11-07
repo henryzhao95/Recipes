@@ -17,12 +17,12 @@ table_grid:
 ## Ingredients
 
 - 500 g carrots, peeled
-- 8 g salt, for blanching
+- 1.5 tsp salt, for blanching
 - Ice water, for cooling
 - 60 ml honey
 - 30 ml soy sauce
 - 7.5 ml red chili flakes, optional
-- 28 g butter
+- 2 tbsp butter
 
 ## Method
 

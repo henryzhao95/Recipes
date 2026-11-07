@@ -27,9 +27,9 @@ table_grid:
 - 240 ml light soy sauce
 - 30 ml dark soy sauce
 - 30 ml Shaoxing rice wine
-- 28 g dark brown sugar or 40 g rock sugar
+- 2 tbsp dark brown sugar or 40 g rock sugar
 - 480 ml water, plus more as needed
-- 4 g cornstarch
+- 1.5 tsp cornstarch
 - 15 ml water, for the slurry
 
 ## Method
@@ -44,7 +44,7 @@ Add the oil, scallions, ginger, star anise, and bay leaves to a wok or pot. Fry 
 
 Add the chicken skin-side down in a single layer. Add water if needed so the liquid covers most of the pieces. Once it returns to a boil, cover and simmer gently for 35 minutes. Turn the chicken and cook for another 10 minutes, until the thickest part reaches 74°C. Transfer to a board and slice when cool enough to handle.
 
-Keep about 120 ml of the braising liquid in the pot. Mix the cornstarch with 15 ml water, stir it into the hot liquid, and cook until thickened. Pour over the chicken or serve alongside.
+Keep a small amount of the braising liquid in the pot. Mix the cornstarch with the water for the slurry, stir it into the hot liquid, and cook until thickened. Pour over the chicken or serve alongside.
 
 [![Chicken thighs simmering in soy braising liquid.](https://redhousespice.com/wp-content/uploads/2020/10/soy-sauce-chicken-15-scaled.jpg)](https://redhousespice.com/wp-content/uploads/2020/10/soy-sauce-chicken-15-scaled.jpg)
 

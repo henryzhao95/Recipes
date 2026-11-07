@@ -24,11 +24,11 @@ table_grid:
 - Cooking spray
 - 680 g chicken wings, split into flats and drumettes
 - 15 ml olive oil
-- 2 g paprika
-- 1 g garlic powder
-- 1 g onion powder
-- 4 g salt
-- 1 g black pepper
+- 1 tsp paprika
+- 0.5 tsp garlic powder
+- 0.5 tsp onion powder
+- 0.75 tsp salt
+- 0.5 tsp black pepper
 
 ## Method
 

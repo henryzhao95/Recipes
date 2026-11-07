@@ -29,8 +29,8 @@ table_grid:
 - 15 g ginger, thinly sliced and julienned
 - 1 small bunch cilantro, roughly chopped
 - 15 ml light soy sauce
-- 1 g salt
-- 2 g sugar
+- 1/8 tsp salt
+- 1/8 tsp sugar
 - 30 ml hot water
 - 1 white fish fillet, about 280 g
 - 30 ml vegetable oil

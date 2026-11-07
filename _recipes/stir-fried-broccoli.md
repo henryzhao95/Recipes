@@ -24,16 +24,16 @@ table_grid:
 ### Broccoli
 
 - 340 g broccoli
-- 10 g salt, divided
+- 2 tsp salt, divided
 - Water, for soaking and cooking
 
 ### White sauce
 
-- 2.5 g salt
-- 4 g sugar
+- 0.5 tsp salt
+- 1 tsp sugar
 - 5 ml cooking wine
-- 5 g chicken bouillon
-- 3 g cornstarch
+- 1 tsp chicken bouillon
+- 1 tsp cornstarch
 - 30 ml water
 
 ### Water and wine
@@ -49,15 +49,15 @@ table_grid:
 
 ### 1. Wash and soak the broccoli
 
-Dissolve 10 g salt in a basin of water. Soak the broccoli florets-side down for 2–3 minutes, moving them gently to dislodge dirt. Rinse and drain.
+Dissolve most of the salt in a basin of water. Soak the broccoli florets-side down for 2–3 minutes, moving them gently to dislodge dirt. Rinse and drain.
 
 ### 2. Mix the white sauce
 
-Stir together the remaining salt, sugar, cooking wine, chicken bouillon, cornstarch, and 30 ml water until the starch dissolves.
+Stir together the remaining salt, sugar, cooking wine, chicken bouillon, cornstarch, and the water for the sauce until the starch dissolves.
 
 ### 3. Mix the water and wine
 
-Combine 120 ml water with 15 ml cooking wine and keep it beside the stove.
+Combine the water and cooking wine, and keep the mixture beside the stove.
 
 ### 4. Cut the broccoli
 

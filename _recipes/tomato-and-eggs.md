@@ -26,13 +26,13 @@ table_grid:
 - 680 g tomatoes
 - 4 eggs
 - 5 slices ginger
-- 8 g cornstarch
+- 1 tbsp cornstarch
 - 60 ml water, for the slurry
 - 30 ml cooking oil
 - 45 ml water, for the tomatoes
-- 2.5 g salt, for the eggs
-- 2.5 g salt, for the tomatoes
-- 25 g brown sugar
+- 0.5 tsp salt, for the eggs
+- 0.5 tsp salt, for the tomatoes
+- 2 tbsp brown sugar
 - 30 ml ketchup
 
 ## Method
@@ -51,7 +51,7 @@ Crack the eggs into a bowl, add the salt, and beat vigorously until combined and
 
 ### 4. Mix the slurry
 
-Stir the cornstarch and 60 ml water together in a small bowl.
+Stir the cornstarch and the water for the slurry together in a small bowl.
 
 ### 5. Scramble the eggs
 
@@ -59,7 +59,7 @@ Heat a pan over high heat until hot but not smoking. Add some of the oil and swi
 
 ### 6. Cook the tomatoes
 
-Add the remaining oil and ginger to the pan, then add the tomatoes. Stir-fry for about 30 seconds. Add 45 ml water, the salt, and brown sugar. Cook for about 2½ minutes, covering if needed to maintain a simmer. Stir the slurry and add gradually until the sauce thickens to your liking. Return the eggs and cook for 50 seconds. Turn off the heat, add the ketchup, and mix.
+Add the remaining oil and ginger to the pan, then add the tomatoes. Stir-fry for about 30 seconds. Add the water for the tomatoes, the salt, and brown sugar. Cook for about 2½ minutes, covering if needed to maintain a simmer. Stir the slurry and add gradually until the sauce thickens to your liking. Return the eggs and cook for 50 seconds. Turn off the heat, add the ketchup, and mix.
 
 ### 7. Taste and serve
 

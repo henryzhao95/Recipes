@@ -26,8 +26,8 @@ table_grid:
 - 5 cloves garlic
 - 30 ml cooking oil, divided
 - 5 ml cooking wine
-- 4 g sugar
-- 2.5 g salt
+- 1 tsp sugar
+- 0.5 tsp salt
 
 ## Method
 
@@ -41,7 +41,7 @@ Slice two garlic cloves and mince the remaining three. Cut the ginger into thin 
 
 ### 3. Fry the aromatics
 
-Heat a wok over high heat. Add 15 ml of the oil, reduce the heat to medium-low, then stir-fry the ginger and garlic for about 15 seconds until fragrant.
+Heat a wok over high heat. Add half of the oil, reduce the heat to medium-low, then stir-fry the ginger and garlic for about 15 seconds until fragrant.
 
 ### 4. Stir-fry the greens
 
