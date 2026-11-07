@@ -972,7 +972,7 @@ code {
 }
 
 @media (min-width: 700px) {
-  html.recipe-scroll {
+  html.recipe-scroll.recipe-snap {
     scroll-snap-type: y proximity;
   }
 

@@ -51,11 +51,13 @@
   const updateProgress = () => {
     const scrollableDistance = method.scrollHeight - method.clientHeight;
     const isScrollable = scrollableDistance > 0;
+    const hasOverflow = isScrollable || ingredients.scrollHeight > ingredients.clientHeight;
     const visibleRatio = method.clientHeight / method.scrollHeight;
     const thumbSize = Math.max(8, visibleRatio * 100);
     const progressRatio = isScrollable ? method.scrollTop / scrollableDistance : 0;
 
     methodPanel.classList.toggle("has-overflow", isScrollable);
+    document.documentElement.classList.toggle("recipe-snap", hasOverflow);
     progress.setAttribute("aria-valuenow", String(Math.round(progressRatio * 100)));
     progressThumb.style.height = `${thumbSize}%`;
     progressThumb.style.top = `${progressRatio * (100 - thumbSize)}%`;
@@ -65,6 +67,7 @@
   window.addEventListener("resize", updateProgress);
   if ("ResizeObserver" in window) {
     new ResizeObserver(updateProgress).observe(method);
+    new ResizeObserver(updateProgress).observe(ingredients);
   }
   updateProgress();
 
@@ -103,6 +106,7 @@
         const stage = touchStart.stage;
         touchStart = undefined;
 
+        if (!document.documentElement.classList.contains("recipe-snap")) return;
         if (Math.abs(deltaY) < 40 || Math.abs(deltaY) <= Math.abs(deltaX) * 1.2) return;
 
         let nextStage;
